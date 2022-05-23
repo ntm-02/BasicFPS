@@ -46,7 +46,7 @@ void UTP_WeaponComponent::Fire()
 	// Try and play the sound if specified
 	if (FireSound != nullptr)
 	{
-		UGameplayStatics::PlaySoundAtLocation(this, FireSound, Character->GetActorLocation());
+		UGameplayStatics::PlaySoundAtLocation(this, FireSound, Character->GetActorLocation(), 0.3f);  // does this work?
 	}
 	
 	// Try and play a firing animation if specified
