@@ -33,6 +33,16 @@ ABasicFPSProjectile::ABasicFPSProjectile()
 
 void ABasicFPSProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
+	//UE_LOG(LogTemp, Warning, TEXT("enemy hit"));
+	// could make projectiles bounce off enemies?
+	if ( (OtherActor != nullptr) && (OtherActor != this) && (OtherActor->ActorHasTag("Enemy")) )
+	{
+		// deal damage
+		UE_LOG(LogTemp, Warning, TEXT("enemy hit"));
+
+		Destroy();
+	}
+
 	// Only add impulse and destroy projectile if we hit a physics
 	if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr) && OtherComp->IsSimulatingPhysics())
 	{
