@@ -38,16 +38,18 @@ void ABasicFPSProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor
 	if ( (OtherActor != nullptr) && (OtherActor != this) && (OtherActor->ActorHasTag("Enemy")) )
 	{
 		// deal damage
+		//OtherActor->Destroy();
 		UE_LOG(LogTemp, Warning, TEXT("enemy hit"));
-
+		OtherComp->SetSimulatePhysics(true);
+		//UE_LOG(LogTemp, Warning, TEXT("enemy hit"));
 		Destroy();
 	}
 
 	// Only add impulse and destroy projectile if we hit a physics
 	if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr) && OtherComp->IsSimulatingPhysics())
 	{
-		OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
+		//OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
 
-		Destroy();
+		//Destroy();
 	}
 }
