@@ -40,7 +40,8 @@ void ABasicFPSProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor
 		// deal damage
 		//OtherActor->Destroy();
 		UE_LOG(LogTemp, Warning, TEXT("enemy hit"));
-		OtherComp->SetSimulatePhysics(true);
+		//OtherComp->SetSimulatePhysics(true);          // this seems to break everything after it runs once
+		//OtherComp->GetRigidBodyState(true);           // this is almost what I want
 		//UE_LOG(LogTemp, Warning, TEXT("enemy hit"));
 		Destroy();
 	}
