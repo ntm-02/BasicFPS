@@ -43,7 +43,7 @@ void ABasicFPSProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor
 		//OtherComp->SetSimulatePhysics(true);          // this seems to break everything after it runs once
 		//OtherComp->GetRigidBodyState(true);           // this is almost what I want
 		//UE_LOG(LogTemp, Warning, TEXT("enemy hit"));
-		Destroy();
+		//Destroy();
 	}
 
 	// Only add impulse and destroy projectile if we hit a physics
@@ -51,6 +51,6 @@ void ABasicFPSProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor
 	{
 		//OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
 
-		//Destroy();
+		Destroy();
 	}
 }
